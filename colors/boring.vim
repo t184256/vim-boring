@@ -1,4 +1,3 @@
-" `boring` vim colorscheme by Alexander Sosedkin
 " Inspired by and based on Berk D. Demir's `noclown`:
 " https://github.com/bdd/.vim/blob/09b4dbef06612c52c9c160773645bea82c0f490d/colors/noclown.vim
 
@@ -73,8 +72,10 @@ call s:Clear('Identifier')
 call s:Clear('Special')
 call s:Clear('Statement')
 call s:Clear('Type')
+call s:Clear('WarningMsg')
 call s:Clear('Wildmenu')
 
 call s:Link('NonText', 'SpecialKey')
 call s:Link('Error', 'Search')
+call s:Link('ErrorMsg', 'Search')
 call s:Link('FoldColumn', 'Folded')
