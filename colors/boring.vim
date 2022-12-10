@@ -17,12 +17,21 @@ if (has('gui_running') || has('unix') && system('tput sitm') == "\e[3m")
 endif
 
 let s:palette = {
-      \ 'bg'   : ["black", '#000000'],
-      \ 'fg'   : ["white", '#ffffff'],
-      \ 'dull' : [    251, '#c6c6c6'],
-      \ 'dark' : [    246, '#949494'],
-      \ 'deep' : [    239, '#4e4e4e'],
+      \ 'bg'   :        ["black", '#000000'],
+      \ 'fg'   :        ["white", '#ffffff'],
+      \ 'dull' :        [    251, '#c6c6c6'],
+      \ 'dark' :        [    246, '#949494'],
+      \ 'deep' :        [    239, '#4e4e4e'],
+      \ 'accent' :      [    223, '#ffd7af'],
+      \ 'darkred' :     [     52, '#5f0000'],
+      \ 'darkyellow' :  [     58, '#3f3f00'],
+      \ 'darkblue' :    [     17, '#00005f'],
+      \ 'darkgreen' :   [     22, '#003f00'],
+      \ 'lightgreen' :  [    194, '#e0ffe0'],
+      \ 'lightyellow' : [    230, '#ffffe0'],
+      \ 'lightred' :    [    224, '#ffe0e0'],
       \ }
+" dark*/light* are cheating with going below 5f / above df
 
 function! s:Clear(group)
   execute 'highlight! clear ' . a:group
@@ -53,21 +62,33 @@ function! s:Link(from, to)
   execute 'highlight link ' . a:from . ' ' . a:to
 endfunction
 
-call s:Define('Normal',		'fg',	'bg',	'NONE')
-call s:Define('PreProc',	'dull',	'bg',	'NONE')
-call s:Define('Constant',	'dull',	'bg',	'NONE')
-call s:Define('String',		'dull',	'bg',	'italic')
-call s:Define('Comment',	'dark',	'bg',	'NONE')
-call s:Define('SpecialKey',	'deep',	'bg',	'NONE')
-call s:Define('TODO',		'dark',	'bg',	'bold')
-call s:Define('IncSearch',	'dull',	'bg',	'inverse')
-call s:Define('Search',		'fg',	'bg',	'inverse')
-call s:Define('Folded',		'dark',	'bg',	'inverse')
-call s:Define('Title',		'fg',	'bg',	'bold')
-call s:Define('Underlined',	'fg',	'bg',	'underline')
-call s:Define('Pmenu	',	'fg',	'bg',	'inverse')
-call s:Define('PmenuSel',	'fg',	'bg',	'bold')
-call s:Define('MatchParen',	'fg',	'bg',	'bold')
+call s:Define('Normal',          'fg',          'bg',   'NONE')
+call s:Define('Constant',        'dull',        'bg',   'NONE')
+call s:Define('String',          'dull',        'bg',   'NONE')
+call s:Define('Comment',         'dark',        'bg',   'NONE')
+call s:Define('SpecialKey',      'deep',        'bg',   'NONE')
+call s:Define('Todo',            'accent',      'bg',   'bold')
+call s:Define('Search',          'fg',          'deep', 'NONE')
+call s:Define('Folded',          'dark',        'bg',   'inverse')
+call s:Define('Title',           'fg',          'bg',   'bold')
+call s:Define('Underlined',      'fg',          'bg',   'underline')
+call s:Define('Pmenu',           'fg',          'bg',   'inverse')
+call s:Define('PmenuSel',        'fg',          'bg',   'bold')
+call s:Define('MatchParen',      'fg',          'deep', 'bold')
+call s:Define('EndOfBuffer',     'deep',        'bg',   'bold')
+call s:Define('SpecialChar',     'dull',        'bg',   'italic')
+call s:Define('DiagnosticError', 'darkred',     'bg',   'NONE')
+call s:Define('DiagnosticWarn',  'darkyellow',  'bg',   'NONE')
+call s:Define('DiagnosticInfo',  'darkblue',    'bg',   'NONE')
+call s:Define('DiagnosticHint',  'darkgreen',   'bg',   'NONE')
+call s:Define('diffAdded',       'lightgreen',  'bg',   'NONE')
+call s:Define('diffRemoved',     'lightred',    'bg',   'NONE')
+call s:Define('diffChanged',     'lightyellow', 'bg',   'NONE')
+call s:Define('diffLine',        'dark',        'bg',   'NONE')
+call s:Define('diffNewFile',     'dark',        'bg',   'NONE')
+call s:Define('diffOldFile',     'dark',        'bg',   'NONE')
+call s:Define('diffIndexLine',   'dark',        'bg',   'NONE')
+call s:Define('diffFile',        'dark',        'bg',   'NONE')
 
 call s:Clear('Identifier')
 call s:Clear('Special')
@@ -79,6 +100,8 @@ call s:Clear('Directory')
 call s:Clear('LineNr')
 call s:Clear('SignColumn')
 
+call s:Link('IncSearch', 'Search')
+call s:Link('PreProc', 'Normal')
 call s:Link('NonText', 'SpecialKey')
 call s:Link('Error', 'Search')
 call s:Link('ErrorMsg', 'Search')
