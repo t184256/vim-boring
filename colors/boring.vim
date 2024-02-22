@@ -25,7 +25,7 @@ let s:palette = {
       \ 'accent' :      [    223, '#ffd7af'],
       \ 'darkred' :     [     52, '#5f0000'],
       \ 'darkyellow' :  [     58, '#3f3f00'],
-      \ 'darkblue' :    [     17, '#00008f'],
+      \ 'darkblue' :    [     17, '#2f2f4f'],
       \ 'darkgreen' :   [     22, '#003f00'],
       \ 'lightgreen' :  [    194, '#e0ffe0'],
       \ 'lightyellow' : [    230, '#ffffe0'],
