@@ -298,7 +298,7 @@ local theme = lush(function(injected_functions)
     -- sym"@method"            { }, -- Function
     -- sym"@field"             { }, -- Identifier
     -- sym"@property"          { }, -- Identifier
-    -- sym"@constructor"       { }, -- Special
+    sym"@constructor"          { Normal }, -- Special
     -- sym"@conditional"       { }, -- Conditional
     -- sym"@repeat"            { }, -- Repeat
     -- sym"@label"             { }, -- Label
