@@ -327,6 +327,10 @@ local theme = lush(function(injected_functions)
     diffLine                   { fg=dull },
     diffNewFile                { fg=dull },
     diffOldFile                { fg=dull },
+
+    -- vimagit
+    diffAdded                  { DiffAdd },
+    diffRemoved                { DiffDelete },
 }
 
 
