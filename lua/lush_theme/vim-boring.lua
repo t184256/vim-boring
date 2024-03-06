@@ -55,14 +55,14 @@ local theme = lush(function(injected_functions)
   local black = hsl("#000000");
   -- https://emilis.info/other/extended_tango
   --            1               2               3               4               5               6               7               8
-  local alum = {hsl("#2e3436"), hsl("#555753"), hsl("#888a85"), hsl("#babdb6"), hsl("#d3d7cf"), hsl("#ecf0eb"), hsl("#f7f8f5"), hsl("#f7f8f5").lighten(25)};
-  local yell = {hsl("#291e00"), hsl("#725000"), hsl("#c4a000"), hsl("#edd400"), hsl("#fce94f"), hsl("#fffc9c"), hsl("#feffd0"), hsl("#feffd0").lighten(25)};
-  local oran = {hsl("#301700"), hsl("#8c3700"), hsl("#ce5c00"), hsl("#f57900"), hsl("#fcaf3e"), hsl("#ffd797"), hsl("#fff0d7"), hsl("#fff0d7").lighten(25)};
-  local choc = {hsl("#271700"), hsl("#503000"), hsl("#8f5902"), hsl("#c17d11"), hsl("#e9b96e"), hsl("#efd0a7"), hsl("#faf0d7"), hsl("#faf0d7").lighten(25)};
-  local cham = {hsl("#173000"), hsl("#2a5703"), hsl("#4e9a06"), hsl("#73d216"), hsl("#8ae234"), hsl("#b7f774"), hsl("#e4ffc7"), hsl("#e4ffc7").lighten(25)};
-  local blue = {hsl("#00202a"), hsl("#0a3050"), hsl("#204a87"), hsl("#3465a4"), hsl("#729fcf"), hsl("#97c4f0"), hsl("#daeeff"), hsl("#daeeff").lighten(25)};
-  local plum = {hsl("#170720"), hsl("#371740"), hsl("#5c3566"), hsl("#75507b"), hsl("#ad7fa8"), hsl("#e0c0e4"), hsl("#fce0ff"), hsl("#fce0ff").lighten(25)};
-  local red =  {hsl("#270000"), hsl("#600000"), hsl("#a40000"), hsl("#cc0000"), hsl("#ef2929"), hsl("#f78787"), hsl("#ffcccc"), hsl("#ffcccc").lighten(25)};
+  local alum = {hsl("#2e3436"), hsl("#555753"), hsl("#888a85"), hsl("#babdb6"), hsl("#d3d7cf"), hsl("#ecf0eb"), hsl("#f7f8f5"), hsl("#f7f8f5").lighten(25), hsl("#f7f8f5").lighten(50)};
+  local yell = {hsl("#291e00"), hsl("#725000"), hsl("#c4a000"), hsl("#edd400"), hsl("#fce94f"), hsl("#fffc9c"), hsl("#feffd0"), hsl("#feffd0").lighten(25), hsl("#feffd0").lighten(50)};
+  local oran = {hsl("#301700"), hsl("#8c3700"), hsl("#ce5c00"), hsl("#f57900"), hsl("#fcaf3e"), hsl("#ffd797"), hsl("#fff0d7"), hsl("#fff0d7").lighten(25), hsl("#fff0d7").lighten(50)};
+  local choc = {hsl("#271700"), hsl("#503000"), hsl("#8f5902"), hsl("#c17d11"), hsl("#e9b96e"), hsl("#efd0a7"), hsl("#faf0d7"), hsl("#faf0d7").lighten(25), hsl("#faf0d7").lighten(50)};
+  local cham = {hsl("#173000"), hsl("#2a5703"), hsl("#4e9a06"), hsl("#73d216"), hsl("#8ae234"), hsl("#b7f774"), hsl("#e4ffc7"), hsl("#e4ffc7").lighten(25), hsl("#e4ffc7").lighten(50)};
+  local blue = {hsl("#00202a"), hsl("#0a3050"), hsl("#204a87"), hsl("#3465a4"), hsl("#729fcf"), hsl("#97c4f0"), hsl("#daeeff"), hsl("#daeeff").lighten(25), hsl("#daeeff").lighten(50)};
+  local plum = {hsl("#170720"), hsl("#371740"), hsl("#5c3566"), hsl("#75507b"), hsl("#ad7fa8"), hsl("#e0c0e4"), hsl("#fce0ff"), hsl("#fce0ff").lighten(25), hsl("#fce0ff").lighten(50)};
+  local red =  {hsl("#270000"), hsl("#600000"), hsl("#a40000"), hsl("#cc0000"), hsl("#ef2929"), hsl("#f78787"), hsl("#ffcccc"), hsl("#ffcccc").lighten(25), hsl("#ffcccc").lighten(50)};
 
   local dull = alum[4];  -- ~ white.darken(40);
   local deep = alum[2];  -- ~ white.darken(70);
@@ -79,6 +79,13 @@ local theme = lush(function(injected_functions)
   local lighterred = red[8];
   local lighteryellow = yell[8];
   local lightergreen = cham[8];
+  local lightestred = red[9];
+  local lightestyellow = yell[9];
+  local lightestgreen = cham[9];
+  local lightestorange = oran[9];
+  local lightestblue = blue[9];
+  local lightestviol = plum[9];
+  local lightestalum = alum[9];
 
   return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
@@ -331,6 +338,15 @@ local theme = lush(function(injected_functions)
     -- vimagit
     diffAdded                  { DiffAdd },
     diffRemoved                { DiffDelete },
+
+    -- rainbow delimiters
+    RainbowDelimiterRed        { fg=lightestred },
+    RainbowDelimiterYellow     { fg=lightestyellow },
+    RainbowDelimiterBlue       { fg=lightestblue },
+    RainbowDelimiterOrange     { fg=lightestorange },
+    RainbowDelimiterGreen      { fg=lightestgreen },
+    RainbowDelimiterViolet     { fg=lightestviol },
+    RainbowDelimiterCyan       { fg=lightestalum },
 }
 
 
