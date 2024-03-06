@@ -54,15 +54,15 @@ local theme = lush(function(injected_functions)
   local white = hsl("#ffffff");
   local black = hsl("#000000");
   -- https://emilis.info/other/extended_tango
-  --            1               2               3               4               5               6               7
-  local alum = {hsl("#2e3436"), hsl("#555753"), hsl("#888a85"), hsl("#babdb6"), hsl("#d3d7cf"), hsl("#ecf0eb"), hsl("#f7f8f5")};
-  local yell = {hsl("#291e00"), hsl("#725000"), hsl("#c4a000"), hsl("#edd400"), hsl("#fce94f"), hsl("#fffc9c"), hsl("#feffd0")};
-  local oran = {hsl("#301700"), hsl("#8c3700"), hsl("#ce5c00"), hsl("#f57900"), hsl("#fcaf3e"), hsl("#ffd797"), hsl("#fff0d7")};
-  local choc = {hsl("#271700"), hsl("#503000"), hsl("#8f5902"), hsl("#c17d11"), hsl("#e9b96e"), hsl("#efd0a7"), hsl("#faf0d7")};
-  local cham = {hsl("#173000"), hsl("#2a5703"), hsl("#4e9a06"), hsl("#73d216"), hsl("#8ae234"), hsl("#b7f774"), hsl("#e4ffc7")};
-  local blue = {hsl("#00202a"), hsl("#0a3050"), hsl("#204a87"), hsl("#3465a4"), hsl("#729fcf"), hsl("#97c4f0"), hsl("#daeeff")};
-  local plum = {hsl("#170720"), hsl("#371740"), hsl("#5c3566"), hsl("#75507b"), hsl("#ad7fa8"), hsl("#e0c0e4"), hsl("#fce0ff")};
-  local red =  {hsl("#270000"), hsl("#600000"), hsl("#a40000"), hsl("#cc0000"), hsl("#ef2929"), hsl("#f78787"), hsl("#ffcccc")};
+  --            1               2               3               4               5               6               7               8
+  local alum = {hsl("#2e3436"), hsl("#555753"), hsl("#888a85"), hsl("#babdb6"), hsl("#d3d7cf"), hsl("#ecf0eb"), hsl("#f7f8f5"), hsl("#f7f8f5").lighten(25)};
+  local yell = {hsl("#291e00"), hsl("#725000"), hsl("#c4a000"), hsl("#edd400"), hsl("#fce94f"), hsl("#fffc9c"), hsl("#feffd0"), hsl("#feffd0").lighten(25)};
+  local oran = {hsl("#301700"), hsl("#8c3700"), hsl("#ce5c00"), hsl("#f57900"), hsl("#fcaf3e"), hsl("#ffd797"), hsl("#fff0d7"), hsl("#fff0d7").lighten(25)};
+  local choc = {hsl("#271700"), hsl("#503000"), hsl("#8f5902"), hsl("#c17d11"), hsl("#e9b96e"), hsl("#efd0a7"), hsl("#faf0d7"), hsl("#faf0d7").lighten(25)};
+  local cham = {hsl("#173000"), hsl("#2a5703"), hsl("#4e9a06"), hsl("#73d216"), hsl("#8ae234"), hsl("#b7f774"), hsl("#e4ffc7"), hsl("#e4ffc7").lighten(25)};
+  local blue = {hsl("#00202a"), hsl("#0a3050"), hsl("#204a87"), hsl("#3465a4"), hsl("#729fcf"), hsl("#97c4f0"), hsl("#daeeff"), hsl("#daeeff").lighten(25)};
+  local plum = {hsl("#170720"), hsl("#371740"), hsl("#5c3566"), hsl("#75507b"), hsl("#ad7fa8"), hsl("#e0c0e4"), hsl("#fce0ff"), hsl("#fce0ff").lighten(25)};
+  local red =  {hsl("#270000"), hsl("#600000"), hsl("#a40000"), hsl("#cc0000"), hsl("#ef2929"), hsl("#f78787"), hsl("#ffcccc"), hsl("#ffcccc").lighten(25)};
 
   local dull = alum[4];  -- ~ white.darken(40);
   local deep = alum[2];  -- ~ white.darken(70);
@@ -76,9 +76,9 @@ local theme = lush(function(injected_functions)
   local dimviol = plum[3];
   local justred = red[5];
   local lightviol = plum[6];
-  local lightred = red[7];
-  local lightyellow = yell[7];
-  local lightgreen = cham[7];
+  local lighterred = red[8];
+  local lighteryellow = yell[8];
+  local lightergreen = cham[8];
 
   return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
@@ -102,9 +102,9 @@ local theme = lush(function(injected_functions)
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     -- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory         { fg=lightviol }, -- Directory names (and other special names in listings)
-    DiffAdd           { fg=lightgreen }, -- Diff mode: Added line |diff.txt|
-    DiffChange        { fg=lightyellow }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete        { fg=lightred}, -- Diff mode: Deleted line |diff.txt|
+    DiffAdd           { fg=lightergreen }, -- Diff mode: Added line |diff.txt|
+    DiffChange        { fg=lighteryellow }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete        { fg=lighterred}, -- Diff mode: Deleted line |diff.txt|
     DiffText          { bg=darkred }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
