@@ -54,7 +54,7 @@ local theme = lush(function(injected_functions)
   local white = hsl("#ffffff");
   local black = hsl("#000000");
   -- https://emilis.info/other/extended_tango
-  --            0               1               2               3               4               5               6
+  --            1               2               3               4               5               6               7
   local alum = {hsl("#2e3436"), hsl("#555753"), hsl("#888a85"), hsl("#babdb6"), hsl("#d3d7cf"), hsl("#ecf0eb"), hsl("#f7f8f5")};
   local yell = {hsl("#291e00"), hsl("#725000"), hsl("#c4a000"), hsl("#edd400"), hsl("#fce94f"), hsl("#fffc9c"), hsl("#feffd0")};
   local oran = {hsl("#301700"), hsl("#8c3700"), hsl("#ce5c00"), hsl("#f57900"), hsl("#fcaf3e"), hsl("#ffd797"), hsl("#fff0d7")};
@@ -68,15 +68,20 @@ local theme = lush(function(injected_functions)
   local deep = alum[2];  -- ~ white.darken(70);
   local todo = oran[5];
   local dullred = red[1];
-  local darkred = red[3];
-  local darkyellow = choc[3];
-  local darkblue = blue[3];
-  local darkgreen = cham[3];
-  local darkviol = plum[3];
+  local darkred = red[2].lighten(10);
+  local darkyellow = yell[2];
+  local darkblue = blue[2];
+  local darkgreen = cham[2].darken(15);
+  local dimred = red[3].lighten(10);
+  local dimyellow = yell[3];
+  local dimblue = blue[3];
+  local dimgreen = cham[3].darken(15);
+  local dimviol = plum[3];
+  local justred = red[5];
   local lightviol = plum[6];
-  local lightred = red[6];
-  local lightyellow = choc[6];
-  local lightgreen = cham[6];
+  local lightred = red[7];
+  local lightyellow = yell[7];
+  local lightgreen = cham[7];
 
   return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
@@ -94,7 +99,7 @@ local theme = lush(function(injected_functions)
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor         { }, -- Character under the cursor
-    CurSearch         { fg=white, bg=darkviol }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+    CurSearch         { fg=white, bg=dimviol }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -107,12 +112,12 @@ local theme = lush(function(injected_functions)
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
-    ErrorMsg          { fg=darkred }, -- Error messages on the command line
+    ErrorMsg          { fg=justred }, -- Error messages on the command line
     -- VertSplit      { }, -- Column separating vertically split windows
     Folded            { bg=deep }, -- Line used for closed folds
     FoldColumn        { bg=deep }, -- 'foldcolumn'
     SignColumn        { bg=deep }, -- Column where |signs| are displayed
-    IncSearch         { bg=darkviol, fg=white }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    IncSearch         { bg=dimviol, fg=white }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute        { bg=dullred, fg=white }, -- |:substitute| replacement text highlighting
     LineNr            { Normal }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove       { Normal }, -- Line number for when the 'relativenumber' option is set, above the cursor line
@@ -229,7 +234,7 @@ local theme = lush(function(injected_functions)
     --
     DiagnosticError               { fg=darkred } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticWarn                { fg=darkyellow } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo                { fg=darkviol } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo                { fg=dimviol } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticHint                { fg=darkgreen } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticOk                  { fg=darkgreen } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
@@ -237,11 +242,11 @@ local theme = lush(function(injected_functions)
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
     -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
     -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-    -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
-    -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
-    -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
-    -- DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
-    -- DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
+    DiagnosticUnderlineError      { gui="underline", sp=dimred } , -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn       { gui="underline", sp=dimyellow } , -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo       { gui="underline", sp=dimviol } , -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint       { gui="underline", sp=dimgreen } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineOk         { gui="underline", sp=dimgreen } , -- Used to underline "Ok" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -319,7 +324,7 @@ local theme = lush(function(injected_functions)
     -- misc
 
     NoiceCursor                { gui="inverse" },
-    NoiceVirtualText           { fg=darkviol },
+    NoiceVirtualText           { fg=dimviol },
 
     diffFile                   { fg=dull },
     diffIndexLine              { fg=dull },
