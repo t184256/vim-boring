@@ -318,6 +318,7 @@ local theme = lush(function(injected_functions)
 
     -- misc
 
+    NoiceCursor                { gui="inverse" },
     NoiceVirtualText           { fg=darkviol },
 
     diffFile                   { fg=dull },
