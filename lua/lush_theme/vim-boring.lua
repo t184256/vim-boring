@@ -71,11 +71,8 @@ local theme = lush(function(injected_functions)
   local darkred = red[2].lighten(10);
   local darkyellow = yell[2];
   local darkblue = blue[2];
+  local darkviol = plum[2];
   local darkgreen = cham[2].darken(15);
-  local dimred = red[3].lighten(10);
-  local dimyellow = yell[3];
-  local dimblue = blue[3];
-  local dimgreen = cham[3].darken(15);
   local dimviol = plum[3];
   local justred = red[5];
   local lightviol = plum[6];
@@ -235,18 +232,18 @@ local theme = lush(function(injected_functions)
     DiagnosticError               { fg=darkred } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticWarn                { fg=darkyellow } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo                { fg=dimviol } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint                { fg=darkgreen } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint                { fg=darkblue } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticOk                  { fg=darkgreen } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
     -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
     -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-    DiagnosticUnderlineError      { gui="underline", sp=dimred } , -- Used to underline "Error" diagnostics.
-    DiagnosticUnderlineWarn       { gui="underline", sp=dimyellow } , -- Used to underline "Warn" diagnostics.
-    DiagnosticUnderlineInfo       { gui="underline", sp=dimviol } , -- Used to underline "Info" diagnostics.
-    DiagnosticUnderlineHint       { gui="underline", sp=dimgreen } , -- Used to underline "Hint" diagnostics.
-    DiagnosticUnderlineOk         { gui="underline", sp=dimgreen } , -- Used to underline "Ok" diagnostics.
+    DiagnosticUnderlineError      { gui="underline", sp=darkred } , -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn       { gui="underline", sp=darkyellow } , -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo       { gui="underline", sp=darkviol } , -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint       { gui="underline", sp=darkblue } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineOk         { gui="underline", sp=darkgreen } , -- Used to underline "Ok" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
