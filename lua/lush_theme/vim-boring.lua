@@ -188,13 +188,13 @@ local theme = lush(function(injected_functions)
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier        { Normal }, -- (*) Any variable name
-    -- Function       { }, --   Function name (also: methods for classes)
+    Function          { Normal }, --   Function name (also: methods for classes)
 
    Statement          { Normal }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
-    -- Operator       { }, --   "sizeof", "+", "*", etc.
+    Operator          { Normal }, --   "sizeof", "+", "*", etc.
     -- Keyword        { }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
@@ -314,7 +314,7 @@ local theme = lush(function(injected_functions)
     -- sym"@operator"          { }, -- Operator
     -- sym"@keyword"           { }, -- Keyword
     -- sym"@exception"         { }, -- Exception
-    -- sym"@variable"          { }, -- Identifier
+    sym"@variable"             { Normal }, -- Identifier
     -- sym"@type"              { }, -- Type
     -- sym"@type.definition"   { }, -- Typedef
     -- sym"@storageclass"      { }, -- StorageClass
@@ -339,14 +339,14 @@ local theme = lush(function(injected_functions)
     diffAdded                  { DiffAdd },
     diffRemoved                { DiffDelete },
 
-    -- rainbow delimiters
-    RainbowDelimiterRed        { fg=lightestred },
-    RainbowDelimiterYellow     { fg=lightestyellow },
-    RainbowDelimiterBlue       { fg=lightestblue },
-    RainbowDelimiterOrange     { fg=lightestorange },
-    RainbowDelimiterGreen      { fg=lightestgreen },
-    RainbowDelimiterViolet     { fg=lightestviol },
+    -- rainbow delimiters (in recommended order)
     RainbowDelimiterCyan       { fg=lightestalum },
+    RainbowDelimiterBlue       { fg=lightestblue },
+    RainbowDelimiterYellow     { fg=lightestyellow },
+    RainbowDelimiterGreen      { fg=lightestgreen },
+    RainbowDelimiterOrange     { fg=lightestorange },
+    RainbowDelimiterViolet     { fg=lightestviol },
+    RainbowDelimiterRed        { fg=lightestred },
 }
 
 
