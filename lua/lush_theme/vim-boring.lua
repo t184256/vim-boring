@@ -315,7 +315,9 @@ local theme = lush(function(injected_functions)
     -- sym"@keyword"           { }, -- Keyword
     -- sym"@exception"         { }, -- Exception
     sym"@variable"             { Normal }, -- Identifier
+    sym"@variable.builtin"     { Normal }, -- Identifier
     -- sym"@type"              { }, -- Type
+    sym"@type.builtin"         { Normal },
     -- sym"@type.definition"   { }, -- Typedef
     -- sym"@storageclass"      { }, -- StorageClass
     -- sym"@structure"         { }, -- Structure
